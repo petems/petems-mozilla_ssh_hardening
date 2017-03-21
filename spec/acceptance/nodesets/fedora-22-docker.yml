@@ -1,0 +1,14 @@
+HOSTS:
+  fedora-22-x64:
+    platform: fedora-22-x86_64
+    hypervisor: docker
+    image: fedora:22
+    docker_image_commands:
+      - dnf clean all
+      - dnf -y update
+      - dnf -y install findutils hostname
+    docker_cmd: '["/sbin/init"]'
+    docker_preserve_image: true
+CONFIG:
+  type: foss
+  log_level: debug

@@ -1,0 +1,19 @@
+{
+  "name": "petems-mozilla_ssh_hardening",
+  "version": "0.1.0",
+  "source": "https://github.com/petems/petems-mozilla_ssh_hardening",
+  "author": "Peter Souter",
+  "license": "Apache-2.0",
+  "summary": "Configures OpenSSH with Mozilla hardening recomendations",
+  "description": "Configures OpenSSH with Mozilla hardening recomendations: https://wiki.mozilla.org/Security/Guidelines/OpenSSH",
+  "project_page": "https://github.com/petems/petems-mozilla_ssh_hardening",
+  "dependencies": [
+    {
+      "name": "saz/ssh",
+      "version_requirement": ">= 2.5.0"
+    },{
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.2.0"
+    }
+  ]
+}
