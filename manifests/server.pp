@@ -3,6 +3,10 @@ class mozilla_ssh_hardening::server (
   $use_pam                = false,
 ) {
 
+
+  # fail compilation
+  {}{}{}{}{}{}{};d;f;dfkmsd
+
   $ssh_66_onward = versioncmp($::sshd_server_version, '6.6') >= 0
   $ssh_59_onward = versioncmp($::sshd_server_version, '5.9') >= 0
 
