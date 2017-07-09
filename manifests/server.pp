@@ -1,6 +1,6 @@
 #
 class mozilla_ssh_hardening::server (
-  $use_pam                = false,
+  $use_pam                = true,
 ) {
 
   $ssh_66_onward = versioncmp($::sshd_server_version, '6.6') >= 0
@@ -43,6 +43,12 @@ class mozilla_ssh_hardening::server (
       'AuthorizedKeysFile2'      => '/etc/ssh/%u/authorized_keys',
     }
     $ssh_version_options = merge($older_ssh_options, $authorized_keys_options)
+  }
+
+  if $::osfamily == 'RedHat' {
+    unless $use_pam {
+      fail("'UsePAM no' is not supported in Red Hat Enterprise Linux and may cause several problems.")
+    }
   }
 
   $default_options = {
