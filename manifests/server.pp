@@ -1,6 +1,7 @@
 #
 class mozilla_ssh_hardening::server (
   $use_pam                = true,
+  $extra_config           = {},
 ) {
 
   $ssh_66_onward = versioncmp($::sshd_server_version, '6.6') >= 0
@@ -92,7 +93,8 @@ class mozilla_ssh_hardening::server (
     'X11UseLocalhost'                 => 'yes',
   }
 
-  $merged_options = merge($default_options, $ssh_version_options)
+  $safe_plus_defaults = merge($default_options, $ssh_version_options)
+  $merged_options     = merge($extra_config, $safe_plus_defaults)
 
   class { '::ssh::server':
     storeconfigs_enabled => false,
