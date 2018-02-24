@@ -4,8 +4,8 @@ class mozilla_ssh_hardening::server (
   $extra_config           = {},
 ) {
 
-  $ssh_66_onward = versioncmp($::sshd_server_version, '6.6') >= 0
-  $ssh_59_onward = versioncmp($::sshd_server_version, '5.9') >= 0
+  $ssh_66_onward = versioncmp($::ssh_server_version_full, '6.6') >= 0
+  $ssh_59_onward = versioncmp($::ssh_server_version_full, '5.9') >= 0
 
   $older_ssh_options = {
     'RequiredAuthentications2' => 'publickey',

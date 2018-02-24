@@ -6,7 +6,7 @@ describe 'mozilla_ssh_hardening::server' do
     let(:facts) do
       {
         :osfamily            => 'RedHat',
-        :sshd_server_version => '6.6.1p1'
+        :ssh_server_version_full => '6.6.1p1'
       }
     end
 

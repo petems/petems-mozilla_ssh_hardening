@@ -15,7 +15,7 @@ describe 'mozilla_ssh_hardening::server class' do
 
     it 'should return a fact' do
       pp = <<-EOS
-      notify{"SSHD Version: ${::sshd_server_version}":}
+      notify{"SSHD Version: ${::ssh_server_version_full}":}
       EOS
 
       # Check output for fact string
@@ -68,7 +68,7 @@ describe 'ssh should pass ssh_scan mozilla test' do
       checksum       => 'sha256',
     }
 
-    $ssh_66_onward = versioncmp($::sshd_server_version, '6.6') >= 0
+    $ssh_66_onward = versioncmp($::ssh_server_version_full, '6.6') >= 0
 
     case $ssh_66_onward {
       true: {
