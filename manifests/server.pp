@@ -55,7 +55,7 @@ class mozilla_ssh_hardening::server (
   $default_options = {
     'AddressFamily'                   => 'any',
     'AllowAgentForwarding'            => 'no',
-    'AllowTcpForwarding'              => 'no',
+    'AllowTCPForwarding'              => 'no',
     'ChallengeResponseAuthentication' => 'no',
     'ClientAliveCountMax'             => '3',
     'ClientAliveInterval'             => '600',
@@ -94,7 +94,7 @@ class mozilla_ssh_hardening::server (
   }
 
   $safe_plus_defaults = merge($default_options, $ssh_version_options)
-  $merged_options     = merge($extra_config, $safe_plus_defaults)
+  $merged_options     = merge($safe_plus_defaults, $extra_config)
 
   class { '::ssh::server':
     storeconfigs_enabled => false,
